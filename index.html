@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD</title>
+    <link rel="stylesheet" href="style.css" >
+</head>
+<body>
+    <header>
+        <h1>Cadastro de Produtos</h1>
+    </header>
+    <main>
+        <nav class="input-area">
+            <div>
+                <label>
+                    <span>Nome:</span>
+                    <input type="text" name="nome-produto" id="nameInput" required>
+                </label>
+                <label>
+                    <span>Valor:</span>
+                    <input type="number" name="valor-produto" id="valueInput" required step="0.01">
+                </label> <br>
+                <button id="saveBtn">Salvar</button>
+            </div>
+        </nav>
+        <nav class="display">
+            <ul id="fullList">
+                <li class="item">
+                    <p>Camisa R$150.00</p>
+                    <button class="editBtn">Editar</button>
+                    <button class="removeBtn">Remover</button>
+                </li>
+            </ul>
+        </nav>
+    </main>
+    <footer>
+        <h2>Projeto criado por Pedro Antônio</h2>
+    </footer>
+</body>
+</html>
