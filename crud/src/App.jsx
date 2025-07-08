@@ -1,34 +1,61 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
 
+import { useState } from 'react'
+
 function App() {
-  const [count, setCount] = useState(0)
+
+  const [nome, setNome] = useState("")
+  const [valor, setValor] = useState("")
+  const [produtos, setProdutos] = useState([])
+
+  const handleSave = () => {
+    
+    const novoProduto = {
+      id: Date.now(),
+      nome,
+      valor
+    }
+  
+    setProdutos([...produtos, novoProduto])
+    setNome("")
+    setValor("")
+
+  }
+
+  const handleDelete = (id) => {
+    const produtosAtt = produtos.filter(produto => produto.id !== id)
+    setProdutos(produtosAtt)
+  }
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <div className="App">
+      <header>
+        <h1>Registro de Produtos</h1>
+      </header>
+      <main>
+        <nav className='registerArea'>
+          <label>
+            <span>Nome: </span>
+            <input type="text" name="nomeProduto" id="productName" required placeholder='nome do produto' onChange={(evt) => setNome(evt.target.value)}/>
+          </label>
+          <label>
+            <span>Valor: </span>
+            <input type="number" name="valorProduto" id="productPrice" required placeholder='valor do produto'onChange={(evt) => setValor(evt.target.value)} />
+          </label>
+          <button onClick={handleSave}>Salvar</button>
+        </nav>
+        <nav className='displayArea'>
+          <ul>
+            {produtos.map((produto) => (
+              <li key={produto.id}>
+                {produto.nome} - R${produto.valor}
+                <button onClick={() => handleDelete(produto.id)}>Excluir</button>
+              </li>
+            ))}
+          </ul>
+        </nav>
+      </main>
+    </div>
   )
 }
 
