@@ -34,14 +34,10 @@ button {
 }
 
 .delete {
-    margin-left: 800px;
+    margin: 0px 50px 0px 0px;
 }
 
 ul {
-    display: flex;
-    justify-content: center;
-    align-items: start;
-    flex-flow: column;
     background-color: lightgrey;
     margin: 20px 200px;
     padding: 5px;
@@ -51,5 +47,9 @@ ul {
 }
 
 li {
-    margin: 10px 0px 10px 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-flow: row nowrap;
+    margin: 5px 0px 5px 50px;
 }
