@@ -49,7 +49,7 @@ function App() {
             {produtos.map((produto) => (
               <li key={produto.id}>
                 {produto.nome} - R${produto.valor}
-                <button onClick={() => handleDelete(produto.id)}>Excluir</button>
+                <button className="delete" onClick={() => handleDelete(produto.id)}>Excluir</button>
               </li>
             ))}
           </ul>
